@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+int seguir = 1;
+string seguirCadena;
+do{
 int numero1,numero2;
 Console.WriteLine("ingrese el primero numero:");
 string cadenaNumero1 = Console.ReadLine();
@@ -49,3 +52,7 @@ else{
 else{
     Console.WriteLine("uno o ambos numeros no son validos");
 }
+Console.WriteLine("1 para realizar otra operacion");
+seguirCadena = Console.ReadLine();
+int.TryParse(seguirCadena,out seguir);
+}while(seguir == 1);
