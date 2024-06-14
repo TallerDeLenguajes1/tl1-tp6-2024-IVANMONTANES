@@ -22,19 +22,20 @@ if(sonValidos == 1){
     switch(operacion){
         case 1: 
         resultado = numero1 + numero2; 
-        Console.WriteLine("resultado "+resultado);
+        Console.WriteLine("la suma de "+numero1.ToString()+"+"+numero2.ToString()+" es igual a "+resultado.ToString());
         break;
         case 2:
         resultado = numero1 - numero2; 
-        Console.WriteLine("resultado "+resultado);
+        Console.WriteLine("la resta de "+numero1.ToString()+"-"+numero2.ToString()+" es igual a "+resultado.ToString());
         break;
         case 3:
         resultado = numero1 * numero2; 
-        Console.WriteLine("resultado "+resultado);
+        Console.WriteLine("el producto de "+numero1.ToString()+"*"+numero2.ToString()+" es igual a "+resultado.ToString());
         break;
         case 4:
         if(numero2 != 0){
             resultado = numero1 / numero2;
+            Console.WriteLine("el cociente de "+numero1.ToString()+"/"+numero2.ToString()+" es igual a "+resultado.ToString());
         }
         else{
             Console.WriteLine("No se puede dividir en 0");
