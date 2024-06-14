@@ -72,3 +72,14 @@ if(int.TryParse(indiceCadena,out indice)){
 foreach(char letra in cadena){
     Console.WriteLine(letra);
 }
+Console.WriteLine("ingrese una cadena:");
+string cadenaNueva = Console.ReadLine();
+Console.WriteLine("ingrese una cadena para ver si hay ocurrencia:");
+string cadenaOcurrencia = Console.ReadLine();
+int indice2 = cadenaNueva.IndexOf(cadenaOcurrencia);
+if(indice2 != -1){
+    Console.WriteLine("si se encuentra la cadena "+cadenaOcurrencia+" en el indice "+indice2);
+}
+else{
+    Console.WriteLine("no se encuentra la cadena "+cadenaOcurrencia);
+}
