@@ -4,6 +4,7 @@ string numeroCadena = Console.ReadLine();
 if(float.TryParse(numeroCadena,out numero)){
     string opcionCadena;
     int opcion;
+    Console.WriteLine("----------CALCULADORA V2----------");
     Console.WriteLine("1: valor absoluto");
     Console.WriteLine("2: cuadrado");
     Console.WriteLine("3: raiz cuadrada");
@@ -57,4 +58,19 @@ if(float.TryParse(numeroCadena,out numero)){
 }
 else{
     Console.WriteLine("no se ingreso un numero valido");
+}
+
+float numero1,numero2;
+Console.WriteLine("ingrese el primer numero:");
+string cadenaNumero1 = Console.ReadLine();
+Console.WriteLine("ingrese el segundo numero:");
+string cadenaNumero2 = Console.ReadLine();
+if(float.TryParse(cadenaNumero1,out numero1) && float.TryParse(cadenaNumero2, out numero2)){
+    float maximo = Math.Max(numero1,numero2);
+    float minimo = Math.Min(numero1,numero2);
+    Console.WriteLine("maximo "+maximo);
+    Console.WriteLine("minimo "+minimo);
+}
+else{
+    Console.WriteLine("no se ingresaron numeros validos");
 }
