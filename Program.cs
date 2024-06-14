@@ -69,3 +69,6 @@ if(int.TryParse(indiceCadena,out indice)){
     string subcadena = cadenaConcatenada.Substring(indice);
     Console.WriteLine("subcadena "+subcadena);
 }
+foreach(char letra in cadena){
+    Console.WriteLine(letra);
+}
