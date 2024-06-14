@@ -20,11 +20,11 @@ else{
 int seguir = 0;
 do{
 Console.WriteLine("ingrese el primer numero:");
-string cadenaNumero1 = Console.ReadLine();
+string cadenaNumero1C1 = Console.ReadLine();
 Console.WriteLine("ingrese el segundo numero:");
-string cadenaNumero2 = Console.ReadLine();
-int numero1 = 0,numero2 = 0,sonValidos = 0;
-if(int.TryParse(cadenaNumero1, out numero1) && int.TryParse(cadenaNumero2, out numero2)){
+string cadenaNumero2C1 = Console.ReadLine();
+int numero1C1 = 0,numero2C1 = 0,sonValidos = 0;
+if(int.TryParse(cadenaNumero1C1, out numero1C1) && int.TryParse(cadenaNumero2C1, out numero2C1)){
     sonValidos = 1;
 }
 if(sonValidos == 1){
@@ -40,21 +40,21 @@ if(sonValidos == 1){
     int.TryParse(operacionCadena, out operacion);
     switch(operacion){
         case 1: 
-        resultado = numero1 + numero2; 
-        Console.WriteLine("la suma de "+numero1.ToString()+"+"+numero2.ToString()+" es igual a "+resultado.ToString());
+        resultado = numero1C1 + numero2C1; 
+        Console.WriteLine("la suma de "+numero1C1.ToString()+"+"+numero2C1.ToString()+" es igual a "+resultado.ToString());
         break;
         case 2:
-        resultado = numero1 - numero2; 
-        Console.WriteLine("la resta de "+numero1.ToString()+"-"+numero2.ToString()+" es igual a "+resultado.ToString());
+        resultado = numero1C1 - numero2C1; 
+        Console.WriteLine("la resta de "+numero1C1.ToString()+"-"+numero2C1.ToString()+" es igual a "+resultado.ToString());
         break;
         case 3:
-        resultado = numero1 * numero2; 
-        Console.WriteLine("el producto de "+numero1.ToString()+"*"+numero2.ToString()+" es igual a "+resultado.ToString());
+        resultado = numero1C1 * numero2C1; 
+        Console.WriteLine("el producto de "+numero1C1.ToString()+"*"+numero2C1.ToString()+" es igual a "+resultado.ToString());
         break;
         case 4:
-        if(numero2 != 0){
-            resultado = numero1 / numero2;
-            Console.WriteLine("el cociente de "+numero1.ToString()+"/"+numero2.ToString()+" es igual a "+resultado.ToString());
+        if(numero2C1 != 0){
+            resultado = numero1C1 / numero2C1;
+            Console.WriteLine("el cociente de "+numero1C1.ToString()+"/"+numero2C1.ToString()+" es igual a "+resultado.ToString());
         }
         else{
             Console.WriteLine("No se puede dividir en 0");
@@ -70,6 +70,84 @@ else{
     string cadenaSeguir = Console.ReadLine();
     int.TryParse(cadenaSeguir, out seguir);
 }while(seguir == 1);
+
+float numeroC2;
+Console.WriteLine("ingrese el numero:");
+string numeroCadena = Console.ReadLine();
+if(float.TryParse(numeroCadena,out numeroC2)){
+    string opcionCadena;
+    int opcion;
+    Console.WriteLine("----------CALCULADORA V2----------");
+    Console.WriteLine("1: valor absoluto");
+    Console.WriteLine("2: cuadrado");
+    Console.WriteLine("3: raiz cuadrada");
+    Console.WriteLine("4: seno");
+    Console.WriteLine("5: coseno");
+    Console.WriteLine("6: parte entera");
+    Console.WriteLine("eliga una opcion:");
+    opcionCadena = Console.ReadLine();
+    if(int.TryParse(opcionCadena,out opcion)){
+        switch(opcion){
+            case 1:
+            float valorAbsoluto = Math.Abs(numeroC2);
+            Console.WriteLine("valor absoluto "+valorAbsoluto);
+            break;
+
+            case 2:
+            float cuadrado = (float)Math.Pow(numeroC2,2);
+            Console.WriteLine("cuadrado "+cuadrado);
+            break;
+
+            case 3:
+            if(numero >= 0){
+            float raizCuadrada = (float)Math.Sqrt(numeroC2);
+            Console.WriteLine("raiz cuadrada "+raizCuadrada);
+            }
+            else{
+                Console.WriteLine("no se puede calcular la raiz cuadrada de un numero negativo");
+            }
+            break;
+
+            case 4:
+            float seno = (float)Math.Sin(numeroC2);
+            Console.WriteLine("seno "+seno);
+            break;
+
+            case 5:
+            float coseno = (float)Math.Cos(numeroC2);
+            Console.WriteLine("coseno "+coseno);
+            break;
+
+            case 6:
+            int parteEntera = (int)numeroC2;
+            Console.WriteLine("parte entera "+parteEntera);
+            break;
+
+            default:
+            Console.WriteLine("no se eligio una opcion valida");
+            break;
+        }
+    }
+}
+else{
+    Console.WriteLine("no se ingreso un numero valido");
+}
+
+float numero1,numero2;
+Console.WriteLine("ingrese el primer numero:");
+string cadenaNumero1 = Console.ReadLine();
+Console.WriteLine("ingrese el segundo numero:");
+string cadenaNumero2 = Console.ReadLine();
+if(float.TryParse(cadenaNumero1,out numero1) && float.TryParse(cadenaNumero2, out numero2)){
+    float maximo = Math.Max(numero1,numero2);
+    float minimo = Math.Min(numero1,numero2);
+    Console.WriteLine("maximo "+maximo);
+    Console.WriteLine("minimo "+minimo);
+}
+else{
+    Console.WriteLine("no se ingresaron numeros validos");
+}
+
 
 Console.WriteLine("ingrese una cadena");
 string cadena = Console.ReadLine();
@@ -102,79 +180,7 @@ if(indice2 != -1){
 else{
     Console.WriteLine("no se encuentra la cadena "+cadenaOcurrencia);
 }
-float numero;
-Console.WriteLine("ingrese el numero:");
-string numeroCadena = Console.ReadLine();
-if(float.TryParse(numeroCadena,out numero)){
-    string opcionCadena;
-    int opcion;
-    Console.WriteLine("----------CALCULADORA V2----------");
-    Console.WriteLine("1: valor absoluto");
-    Console.WriteLine("2: cuadrado");
-    Console.WriteLine("3: raiz cuadrada");
-    Console.WriteLine("4: seno");
-    Console.WriteLine("5: coseno");
-    Console.WriteLine("6: parte entera");
-    Console.WriteLine("eliga una opcion:");
-    opcionCadena = Console.ReadLine();
-    if(int.TryParse(opcionCadena,out opcion)){
-        switch(opcion){
-            case 1:
-            float valorAbsoluto = Math.Abs(numero);
-            Console.WriteLine("valor absoluto "+valorAbsoluto);
-            break;
-
-            case 2:
-            float cuadrado = (float)Math.Pow(numero,2);
-            Console.WriteLine("cuadrado "+cuadrado);
-            break;
-
-            case 3:
-            if(numero >= 0){
-            float raizCuadrada = (float)Math.Sqrt(numero);
-            Console.WriteLine("raiz cuadrada "+raizCuadrada);
-            }
-            else{
-                Console.WriteLine("no se puede calcular la raiz cuadrada de un numero negativo");
-            }
-            break;
-
-            case 4:
-            float seno = (float)Math.Sin(numero);
-            Console.WriteLine("seno "+seno);
-            break;
-
-            case 5:
-            float coseno = (float)Math.Cos(numero);
-            Console.WriteLine("coseno "+coseno);
-            break;
-
-            case 6:
-            int parteEntera = (int)numero;
-            Console.WriteLine("parte entera "+parteEntera);
-            break;
-
-            default:
-            Console.WriteLine("no se eligio una opcion valida");
-            break;
-        }
-    }
-}
-else{
-    Console.WriteLine("no se ingreso un numero valido");
-}
-
-float numero1,numero2;
-Console.WriteLine("ingrese el primer numero:");
-string cadenaNumero1 = Console.ReadLine();
-Console.WriteLine("ingrese el segundo numero:");
-string cadenaNumero2 = Console.ReadLine();
-if(float.TryParse(cadenaNumero1,out numero1) && float.TryParse(cadenaNumero2, out numero2)){
-    float maximo = Math.Max(numero1,numero2);
-    float minimo = Math.Min(numero1,numero2);
-    Console.WriteLine("maximo "+maximo);
-    Console.WriteLine("minimo "+minimo);
-}
-else{
-    Console.WriteLine("no se ingresaron numeros validos");
-}
+Console.WriteLine("ingrese la cadena");
+string cadenaAConvertir = Console.ReadLine();
+Console.WriteLine("cadena en miniscula "+cadenaAConvertir.ToLower());
+Console.WriteLine("cadena en miniscula "+cadenaAConvertir.ToUpper());
