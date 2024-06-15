@@ -2,10 +2,11 @@
 string seguirEjercicioC;
 int seguirEjercicio;
 do{
-Console.WriteLine("1: ejercicio 1");
-Console.WriteLine("2: ejercicio 2");
-Console.WriteLine("3: ejercicio 3");
-Console.WriteLine("4: ejercicio 4");
+Console.WriteLine("----------ejercicios----------");
+Console.WriteLine("1: ejercicio 1(invertir numero)");
+Console.WriteLine("2: ejercicio 2(calculadoraV1)");
+Console.WriteLine("3: ejercicio 3(calculadoraV2)");
+Console.WriteLine("4: ejercicio 4(ejercicios cadenas)");
 Console.WriteLine("eliga el ejercicio:");
 string elegirEjercicioC = Console.ReadLine();
 int elegirEjercicio;
@@ -14,7 +15,7 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
         case 1:
             string cadenaNumero;
             int numero;
-            Console.WriteLine("ingrese un numero:");
+            Console.WriteLine("ingrese el numero que desea invertir:");
             cadenaNumero = Console.ReadLine();
             if(int.TryParse(cadenaNumero, out numero)){
                 int ultimoDigito;
@@ -25,10 +26,10 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
                     cociente = cociente / 10;
                     invertido = invertido * 10 + ultimoDigito;
                 }
-                Console.WriteLine("numero invertido "+invertido);
+                Console.WriteLine("el numero invertido es: "+invertido);
             }
             else{
-                Console.WriteLine("no es un numero");
+                Console.WriteLine("no se ingreso un numero");
             }
         break;
 
@@ -82,7 +83,7 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
             else{
                 Console.WriteLine("no se ingresaron numeros validos");
             }
-                Console.WriteLine("1 para seguir");
+                Console.WriteLine("1 para seguir usando la CALCULADORAV1");
                 string cadenaSeguir = Console.ReadLine();
                 int.TryParse(cadenaSeguir, out seguir);
             }while(seguir == 1);
@@ -152,6 +153,7 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
                 }
 
                 float numero1,numero2;
+                Console.WriteLine("----------MAXIMO Y MINIMO---------");
                 Console.WriteLine("ingrese el primer numero:");
                 string cadenaNumero1 = Console.ReadLine();
                 Console.WriteLine("ingrese el segundo numero:");
@@ -159,8 +161,8 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
                 if(float.TryParse(cadenaNumero1,out numero1) && float.TryParse(cadenaNumero2, out numero2)){
                     float maximo = Math.Max(numero1,numero2);
                     float minimo = Math.Min(numero1,numero2);
-                    Console.WriteLine("maximo "+maximo);
-                    Console.WriteLine("minimo "+minimo);
+                    Console.WriteLine("el maximo entre "+numero1+" y "+numero2+" es "+maximo);
+                    Console.WriteLine("el minimo entre "+numero1+" y "+numero2+" es "+minimo);
                 }
                 else{
                     Console.WriteLine("no se ingresaron numeros validos");
@@ -168,48 +170,51 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
         break;
 
         case 4:
+            Console.WriteLine("----------LONGITUD DE UNA CADENA----------");
             Console.WriteLine("ingrese una cadena");
             string cadena = Console.ReadLine();
             int longitud = cadena.Length;
             Console.WriteLine("longitud "+longitud);
             //ejercicio concatenar cadena//
+            Console.WriteLine("----------CONCANTENAR CADENAS----------");
             Console.WriteLine("ingrese la segunda cadena:");
             string cadena2 = Console.ReadLine();
             string cadenaConcatenada = cadena+cadena2;
             Console.WriteLine("cadena concatenada: "+cadenaConcatenada);
             //extraer subcadena//
+            Console.WriteLine("----------EXTRAER SUBCADENA DE LA PRIMERA CADENA-----------");
             Console.WriteLine("indique el indice donde empezara la subcadena");
             string indiceCadena = Console.ReadLine();
             int indice;
             if(int.TryParse(indiceCadena,out indice)){
-            string subcadena = cadenaConcatenada.Substring(indice);
+            string subcadena = cadena.Substring(indice);
             Console.WriteLine("subcadena "+subcadena);
             }
+            Console.WriteLine("----------RECORRER LA CADENA CON FOREACH----------");
             foreach(char letra in cadena){
             Console.WriteLine(letra);
             }
-            Console.WriteLine("ingrese una cadena:");
-            string cadenaNueva = Console.ReadLine();
+            Console.WriteLine("----------BUSCAR SI HA OCURRENCIA EN LA PRIMERA CADENA");
             Console.WriteLine("ingrese una cadena para ver si hay ocurrencia:");
             string cadenaOcurrencia = Console.ReadLine();
-            int indice2 = cadenaNueva.IndexOf(cadenaOcurrencia);
+            int indice2 = cadena.IndexOf(cadenaOcurrencia);
             if(indice2 != -1){
                 Console.WriteLine("si se encuentra la cadena "+cadenaOcurrencia+" en el indice "+indice2);
             }
             else{
                 Console.WriteLine("no se encuentra la cadena "+cadenaOcurrencia);
             }
-            Console.WriteLine("ingrese la cadena");
-            string cadenaAConvertir = Console.ReadLine();
-            Console.WriteLine("cadena en miniscula "+cadenaAConvertir.ToLower());
-            Console.WriteLine("cadena en miniscula "+cadenaAConvertir.ToUpper());
+            Console.WriteLine("----------CONVERTIR LA CADENA EN MAYUSCULAS Y MINUSCULAS----------");
+            Console.WriteLine("cadena en miniscula "+cadena.ToLower());
+            Console.WriteLine("cadena en miniscula "+cadena.ToUpper());
+            Console.WriteLine("----------CADENA SEPARADA POR ESPACIOS---------");
             Console.WriteLine("ingrese una cadena separada por espacios");
             string cadenaSeparadaEspacios = Console.ReadLine();
             string[] cadenaSinEspacios = cadenaSeparadaEspacios.Split(" ");
             foreach(string letra in cadenaSinEspacios){
                 Console.WriteLine(letra);
             }
-            for(int i = 0; i < 10; i++){
+            Console.WriteLine("----------ECUACION USANDO UNA CADENA DE CARACTERES----------");
             Console.WriteLine("ingrese una ecuacion:");
             string cadenaEcuacion = Console.ReadLine();
             int operacionE = 0;
@@ -262,7 +267,6 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
             }
             else{
                 Console.WriteLine("no se pudo detectar la ecuacion");
-            }
             }
             break;
             default: Console.WriteLine("no se eligio una opcion valida"); break;
