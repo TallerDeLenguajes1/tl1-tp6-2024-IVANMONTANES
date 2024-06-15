@@ -209,11 +209,66 @@ if(int.TryParse(elegirEjercicioC,out elegirEjercicio)){
             foreach(string letra in cadenaSinEspacios){
                 Console.WriteLine(letra);
             }
+            for(int i = 0; i < 10; i++){
+            Console.WriteLine("ingrese una ecuacion:");
+            string cadenaEcuacion = Console.ReadLine();
+            int operacionE = 0;
+            int operadorEncontrado = 0;
+            foreach(char caracter in cadenaEcuacion){
+                if(caracter == '+' && operadorEncontrado != 1){
+                    operacionE = 1;
+                    operadorEncontrado = 1;
+                }
+                else if(caracter == '-' && operadorEncontrado != 1){
+                    operacionE = 2;
+                    operadorEncontrado = 1;
+                }
+                else if(caracter == '*' && operadorEncontrado != 1){
+                    operacionE = 3;
+                    operadorEncontrado = 1;
+                }
+                else if(caracter == '/' && operadorEncontrado != 1){
+                    operacionE = 4;
+                    operadorEncontrado = 1;
+                }
+                else{
+                    if(operadorEncontrado != 1){
+                    operacionE = 5;
+                   }
+                }
+            }
+            if(operadorEncontrado == 1){
+                string[] cadenaEcuacionSeparada = cadenaEcuacion.Split('+','-','*','/');
+                int numero1E,numero2E,resultadoE = 0,dividioEnCero = 0;
+                int.TryParse(cadenaEcuacionSeparada[0],out numero1E);
+                int.TryParse(cadenaEcuacionSeparada[1],out numero2E);
+                switch(operacionE){
+                    case 1: resultadoE = numero1E+numero2E; break;
+                    case 2: resultadoE = numero1E-numero2E; break;
+                    case 3: resultadoE = numero1E*numero2E; break;
+                    case 4:
+                        if(numero2E == 0){
+                            Console.WriteLine("no se puede dividir en 0");
+                            dividioEnCero = 1;
+                        }
+                        else{
+                            resultadoE = numero1E/numero2E;
+                        }
+                    break;
+                }
+                if(dividioEnCero != 1){
+                Console.WriteLine("resultado "+resultadoE);
+                }
+            }
+            else{
+                Console.WriteLine("no se pudo detectar la ecuacion");
+            }
+            }
             break;
             default: Console.WriteLine("no se eligio una opcion valida"); break;
             }
         }
-        Console.WriteLine("1 para seguir");
+        Console.WriteLine("1 para seguir eligiendo ejercicios");
         seguirEjercicioC = Console.ReadLine();
         int.TryParse(seguirEjercicioC,out seguirEjercicio);
 }while(seguirEjercicio == 1);
